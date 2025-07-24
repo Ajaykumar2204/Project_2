@@ -30,7 +30,7 @@ const InfoRest = () => {
       if (!restaurant || !restaurant._id) {
         throw new Error('No restaurant ID found');
       }
-      const url = `${Base_url}/menu/view/${restaurant._id}`;
+      const url = `http://13.60.104.255/api/menu/view/${restaurant._id}`;
       const qr = await QRCode.toDataURL(url);
       setQrCodeUrl(qr);
     } catch (err) {
