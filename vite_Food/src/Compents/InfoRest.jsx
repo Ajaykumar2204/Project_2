@@ -15,7 +15,7 @@ const InfoRest = () => {
   // Memoize fetchInfo using useCallback
   const fetchInfo = useCallback(async () => {
     try {
-      const res = await axios.get(`${Base_url}/restaurant/view`, {
+      const res = await axios.get(`${Base_url}/restaurant/view`, { 
         withCredentials: true,
       });
       dispatch(setRestaurant(res.data.Restaurant));
@@ -30,7 +30,7 @@ const InfoRest = () => {
       if (!restaurant || !restaurant._id) {
         throw new Error('No restaurant ID found');
       }
-      const url = `http://localhost:5173/menu/view/${restaurant._id}`;
+      const url = `http://13.60.104.255/api/menu/view/${restaurant._id}`;
       const qr = await QRCode.toDataURL(url);
       setQrCodeUrl(qr);
     } catch (err) {
