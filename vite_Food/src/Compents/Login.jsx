@@ -21,6 +21,7 @@ const Login = () => {
         { withCredentials: true }
       );
       if (!response.data?.user) throw new Error("Login failed!");
+    
       dispatch(loginuser(response.data.user));
       navigate('/restaurant/view');
     } catch (err) {
